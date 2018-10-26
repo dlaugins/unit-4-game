@@ -19,13 +19,17 @@
 
 <body>
     <div class="row" id="title">
+        <div class="col-md-1">
+        </div>
         <div class="col-md-4">
             <h1>CrystalsCollector!</h1>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-7">
         </div>
     </div>
     <div class="row" id="instructions">
+            <div class="col-md-1">
+                </div>
         <div class="col-md-4">
             <p>You will be given a random number at the start of the game.
             </p>
@@ -41,20 +45,24 @@
             </p>
 
         </div>
-        <div class="col-md-8">
+        <div class="col-md-7">
         </div>
     </div>
     <div class="row">
+            <div class="col-md-1">
+                </div>
         <div class="col-md-3" id="randomNumber">
         </div>
-        <div class="col-md-1">
+        <div class="col-md-2">
             <p id="wins">Wins: 0</p>
             <P id="lose">Losses: 0</P>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-6">
         </div>
     </div>
     <div class="row" id="gems">
+            <div class="col-md-1">
+                </div>
         <div class="col-md-1" id="Gem1">
             <img src="assets/images/GEM1.jpg">
 
@@ -68,7 +76,7 @@
         <div class="col-md-1" id=Gem4>
             <img src="assets/images/Gem4.jpg">
         </div>
-        <div class="col-md-6">
+        <div class="col-md-5">
         </div>
     </div>
     <div class="row" id="gemNum">
@@ -84,16 +92,20 @@
         </div>
     </div>
     <div class="row" id="totalScoreQuestion">
+            <div class="col-md-1">
+                </div>
         <div class="col-md-3">
             <p>My total score is: </p>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-8">
         </div>
     </div>
     <div class="row" id="totalScoreQuestion">
+            <div class="col-md-1">
+                </div>
         <div class="col-md-3">
         </div>
-        <div class="col-md-9" id="answer">
+        <div class="col-md-8" id="answer">
         </div>
     </div>
 
@@ -110,48 +122,66 @@
 
         // var randomNumber = Math.floor(Math.random() * (120 - 19) + 19);
         // 
-
-
-        // var randPc = Math.floor(Math.random() * 13);
-        $("#Gem1").on("click", function () {
+        function game(index) {
             if (totalPoints == 0) {
                 randomNumber = Math.floor(Math.random() * (120 - 19) + 19);
-                randPc = Math.floor(Math.random() * 13);
-                randBc = Math.floor(Math.random() * 13);
-                randYc = Math.floor(Math.random() * 13);
-                randGc = Math.floor(Math.random() * 13);
+                randPc = Math.floor(Math.random() * 12)+1;
+                randBc = Math.floor(Math.random() * 12)+1;
+                randYc = Math.floor(Math.random() * 12)+1;
+                randGc = Math.floor(Math.random() * 12)+1;
                 $("#randomNumber").text(randomNumber);
             }
             // $("#GemNum1").text(randPc);
-            totalPoints = parseInt(totalPoints) + parseInt(randPc);
+            if (index === 0) {
+                totalPoints = parseInt(totalPoints) + parseInt(randPc);
+            }
+            if (index === 1) {
+                totalPoints = parseInt(totalPoints) + parseInt(randBc);
+            }
+            if (index === 2) {
+                totalPoints = parseInt(totalPoints) + parseInt(randYc);
+            }
+            if (index === 3) {
+                totalPoints = parseInt(totalPoints) + parseInt(randGc);
+            }
+
             console.log(totalPoints);
             if (totalPoints > randomNumber) {
                 losses++;
-                $("#lose").text("Losses: "+ losses);
+                $("#lose").text("Losses: " + losses);
                 totalPoints = 0;
+                $("#randomNumber").text("You lost, try again");
 
             };
             if (totalPoints === randomNumber) {
                 wins++;
-                $("#wins").text("Wins" + wins)
+                $("#wins").text("Wins: " + wins)
                 totalPoints = 0;
+                $("#randomNumber").text("Congratulations, you win");
             };
             $("#answer").text(totalPoints);
+        }
+
+        // var randPc = Math.floor(Math.random() * 13);
+        $("#Gem1").on("click", function () {
+            game(0);
         });
 
         //   var randBc = Math.floor(Math.random() * 13);
         $("#Gem2").on("click", function () {
-            $("#GemNum2").text(randBc);
+            game(1);
         });
 
         //   var randYc = Math.floor(Math.random() * 13);
         $("#Gem3").on("click", function () {
-            $("#GemNum3").text(randYc);
+            game(2);
+
         });
 
         //   var randGc = Math.floor(Math.random() * 13);
         $("#Gem4").on("click", function () {
-            $("#GemNum4").text(randGc);
+            game(3);
+
         });
 
     //   var totalPoints = parseInt(randPc) + parseInt(randBc) + parseInt(randYc) + parseInt(randGc);
