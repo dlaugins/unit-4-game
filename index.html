@@ -5,15 +5,15 @@
 <head>
     <meta charset="utf-8">
 
-    <title>The HTML5 Herald</title>
+    <title>Crystal Collector</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-    <!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-        <link rel="stylesheet" type="text/css" href="style.css"> -->
+        <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
@@ -22,15 +22,15 @@
         <div class="col-md-1">
         </div>
         <div class="col-md-4">
-            <h1>CrystalsCollector!</h1>
+            <h1>Crystal Collector!</h1>
         </div>
         <div class="col-md-7">
         </div>
     </div>
-    <div class="row" id="instructions">
+    <div class="row" >
             <div class="col-md-1">
                 </div>
-        <div class="col-md-4">
+        <div class="col-md-4" id="instructions">
             <p>You will be given a random number at the start of the game.
             </p>
             <p>There are four crystals below. By clicking on a crystal you will add a
@@ -51,13 +51,13 @@
     <div class="row">
             <div class="col-md-1">
                 </div>
-        <div class="col-md-3" id="randomNumber">
+        <div class="col-md-2" id="randomNumber">
         </div>
-        <div class="col-md-2">
+        <div class="col-md-1" id = "wl">
             <p id="wins">Wins: 0</p>
             <P id="lose">Losses: 0</P>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-8">
         </div>
     </div>
     <div class="row" id="gems">
@@ -94,18 +94,18 @@
     <div class="row" id="totalScoreQuestion">
             <div class="col-md-1">
                 </div>
-        <div class="col-md-3">
+        <div class="col-md-2" id="ts">
             <p>My total score is: </p>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-9">
         </div>
     </div>
-    <div class="row" id="totalScoreQuestion">
+    <div class="row" id="totalScoreAnswer">
             <div class="col-md-1">
                 </div>
-        <div class="col-md-3">
+        <div class="col-md-2" id="answer">
         </div>
-        <div class="col-md-8" id="answer">
+        <div class="col-md-9" >
         </div>
     </div>
 
@@ -144,7 +144,7 @@
             if (index === 3) {
                 totalPoints = parseInt(totalPoints) + parseInt(randGc);
             }
-
+console.log(this);
             console.log(totalPoints);
             if (totalPoints > randomNumber) {
                 losses++;
