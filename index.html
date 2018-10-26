@@ -150,14 +150,14 @@ console.log(this);
                 losses++;
                 $("#lose").text("Losses: " + losses);
                 totalPoints = 0;
-                $("#randomNumber").text("You lost, try again");
+                $("#randomNumber").text("You lost, try again!");
 
             };
             if (totalPoints === randomNumber) {
                 wins++;
                 $("#wins").text("Wins: " + wins)
                 totalPoints = 0;
-                $("#randomNumber").text("Congratulations, you win");
+                $("#randomNumber").text("Congratulations, you win!");
             };
             $("#answer").text(totalPoints);
         }
